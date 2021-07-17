@@ -1,0 +1,336 @@
+<app-header></app-header>
+<section class="page-head">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="page-head-div">
+                        <ul>
+                            <li>
+                                <a href="#">FULL CAST AND CREW</a>
+                            </li>
+                            <li>
+                                <a href="#">TRIVIA</a>
+                            </li>
+                            <li>
+                                <a href="#">USER REVIEWS</a>
+                            </li>
+                            <li>
+                                <a href="#" class="lst-ch">IMDbPro</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>  
+        </div>
+      </section>
+      <section class="page-video-title">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="pg-h4-box">
+                     <h4 class="pag-h4-nm">The Shawshank Redemption<span>&nbsp;(1994)</span></h4>
+                        <ul class="page-vd-ul"> 
+                            <li>R</li>
+                            <li>142 min</li>     
+                            <li>Drama</li>
+                        </ul> 
+                    </div>
+                </div>
+                </div>
+            <div class="row mt-15">
+                <div class="col-md-12">
+                    <ul class="page-video-rate">
+                        <li>
+                            <div class="star-vd-icon">
+                                <i class="fa fa-star st-yellow" aria-hidden="true"></i>
+                            </div>
+                            <div class="star-vd-no">
+                                <p>9.3<span class="st-vd-1-span">/10</span><span class="st-vd-2-span">2,5467</span></p>
+                            </div>
+                        </li>
+                        <li>
+                            <!--<a href="#" >-->
+                                <div class="star-vd-icon">
+                                    <!--<i class="fa fa-star f-st-grey" aria-hidden="true"></i> onchange="getChange();" -->
+                                    <select class="native-select" id="select-native-id">
+                                        <option value="0">Select Your Rating</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                        <option>7</option>
+                                        <option>8</option>
+                                        <option>9</option>
+                                        <option>10</option>
+                                        <option value="0">Remove Your Rating</option>
+                                    </select>
+                                    <span class="grey-star" id="grey-div-id"></span>
+                                    <span class="blue-star" id="blue-div-id" style="display: none;"></span>
+                                </div>
+                                <div class="star-vd-no">
+                                    <p class="rate-p metasc-p"><span id="rate-id" >Rate  
+                                        <span class="st-vd-1-span" id="">&nbsp;</span>
+                                            <span class="">&nbsp;</span>
+                                            <span class="st-vd-2-span">&nbsp;</span>
+                                        </span>
+                                        <span id="rt-value-main-id" style="display: none;">
+                                            <span class="st-vd-1-span" id="top-sp">0</span>
+                                            <span class="">/10</span>
+                                            <span class="st-vd-2-span">You</span>
+                                        </span>
+                                    </p>
+                                </div>
+                            <!--</a>-->
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="star-vd-icon">
+                                    <p class="gr-p">80</p>
+                                </div>
+                                <div class="star-vd-no">
+                                    <p class="rate-p">Metascore<span class="st-vd-1-span">&nbsp;</span><span class="st-vd-2-span">&nbsp;</span></p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+      </section>
+      <section class="rating-video">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="rt-video-div">
+                        <video width="100%" height="100%" controls>
+                            <source src="../assets/video/Intro.mp4" type="video/mp4">
+                            <source src="../assets/video/Intro.ogg" type="video/ogg">
+                        </video>
+                    </div>
+                </div>
+            </div>  
+        </div>
+      </section>
+      <section class="cr-dtl">
+        <div class="container">
+            <owl-carousel-o [options]="customOptions">
+                <ng-template carouselSlide>
+                    <div class="slide">
+                        <div class="cm-dtl-div">
+                            <p><i class="fa fa-line-chart cm-dtl-i" aria-hidden="true"></i>Crime</p>
+                        </div>
+                    </div>
+                </ng-template>
+                <ng-template carouselSlide>
+                    <div class="slide">
+                        <div class="cm-dtl-div">
+                            <p><i class="fa fa-line-chart cm-dtl-i" aria-hidden="true"></i>Mystery</p>
+                        </div>
+                    </div>
+                </ng-template>
+                <ng-template carouselSlide>
+                    <div class="slide">
+                        <div class="cm-dtl-div">
+                            <p><i class="fa fa-line-chart cm-dtl-i" aria-hidden="true"></i>Thriller</p>
+                        </div>
+                    </div>
+                </ng-template>
+                <ng-template carouselSlide>
+                    <div class="slide">
+                        <div class="cm-dtl-div">
+                            <p><i class="fa fa-line-chart cm-dtl-i" aria-hidden="true"></i>Mystery</p>
+                        </div>  
+                    </div>
+                </ng-template>
+                <ng-template carouselSlide>
+                    <div class="slide">
+                        <div class="cm-dtl-div">
+                            <p><i class="fa fa-line-chart cm-dtl-i" aria-hidden="true"></i>Crime</p>
+                        </div> 
+                    </div>
+                </ng-template>
+            </owl-carousel-o> 
+        </div>
+      </section>
+      <section class="movie-description">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="movie-des-text">
+                        <h6>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </h6>  
+                        <p>Language : <span>Bengali</span></p>
+                        <p>Genre : <span>Crime, Mystery, Thriller</span></p>
+                        <p>Year : <span>2015</span></p>
+                        <p>Cast : <span>Indranil Sen, Kaushik Sen</span></p>
+                        <p>Director : <span>Saibal Mitra</span></p>
+                    </div>
+                </div>
+            </div>  
+        </div>
+      </section>
+      <section class="vd-photo">
+        <div class="container"> 
+            <h3 class="vd-photo-h3">Videos</h3>  
+            <owl-carousel-o [options]="customOptions">
+                <ng-template carouselSlide>
+                    <div class="slide">
+                        <div class="effect">                               
+                            <div class="img"> <img alt="gallery" src="../assets/images/w-1.jpg">
+                              <div class="overlay-1"> <a rel="prettyPhoto[]" href="../assets/images/w-1.jpg"> <i class="fa fa-play"></i> </a></div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+                <ng-template carouselSlide>
+                    <div class="slide">
+                        <div class="effect">                               
+                            <div class="img"> <img alt="gallery" src="../assets/images/h-video-2-img.webp">
+                              <div class="overlay-1"> <a rel="prettyPhoto[]" href="../assets/images/h-video-2-img.webp"> <i class="fa fa-play"></i> </a></div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+                <ng-template carouselSlide>
+                    <div class="slide">
+                        <div class="effect">                               
+                            <div class="img"> <img alt="gallery" src="../assets/images/h-video-3-img.webp">
+                              <div class="overlay-1"> <a rel="prettyPhoto[]" href="../assets/images/h-video-3-img.webp"> <i class="fa fa-play"></i> </a></div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+                <ng-template carouselSlide>
+                    <div class="slide">
+                        <div class="effect">                               
+                            <div class="img"> <img alt="gallery" src="../assets/images/h-video-4-img.webp">
+                              <div class="overlay-1"> <a rel="prettyPhoto[]" href="../assets/images/h-video-4-img.webp"> <i class="fa fa-play"></i> </a></div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </owl-carousel-o> 
+        </div>
+      </section>
+      <section class="vd-photo">
+        <div class="container">  
+            <h3 class="vd-photo-h3">Photos</h3>  
+            <owl-carousel-o [options]="customOptions">
+                <ng-template carouselSlide>
+                    <div class="slide">
+                        <div class="effect">                               
+                            <div class="img"> <img alt="gallery" src="../assets/images/photo-1.jpg">
+                               <a rel="prettyPhoto[]" href="../assets/images/photo-1.jpg"></a>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+                <ng-template carouselSlide>
+                    <div class="slide">
+                        <div class="effect">                               
+                            <div class="img"> <img alt="gallery" src="../assets/images/photo-2.jpg">
+                               <a rel="prettyPhoto[]" href="../assets/images/photo-2.jpg"></a>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+                <ng-template carouselSlide>
+                    <div class="slide">
+                        <div class="effect">                               
+                            <div class="img"> <img alt="gallery" src="../assets/images/photo-3.jpg">
+                              <a rel="prettyPhoto[]" href="../assets/images/photo-3.jpg"></a>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+                <ng-template carouselSlide>
+                    <div class="slide">
+                        <div class="effect">                               
+                            <div class="img"> <img alt="gallery" src="../assets/images/photo-4.jpg">
+                              <a rel="prettyPhoto[]" href="../assets/images/photo-4.jpg"> </a>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </owl-carousel-o>
+        </div>
+      </section>
+      <section class="vd-photo">
+        <div class="container">
+            <h3 class="vd-photo-h3">Cast & Crew</h3>
+            <h6 class="tp-h6">Top Billed Cast</h6>
+            <owl-carousel-o [options]="customOptions">
+                <ng-template carouselSlide>
+                    <div class="slide">
+                        <img src="../assets/images/cast-1.jpg" class="img-fluid">
+                        <div class="cast-text">
+                             <h6>Marlon Brando</h6>
+                            <p>Lorem Ipsum is simply dummy text..</p>  
+                         </div> 
+                    </div>
+                </ng-template>
+                <ng-template carouselSlide>
+                    <div class="slide">
+                        <img src="../assets/images/cast-2.jpg" class="img-fluid">
+                        <div class="cast-text">
+                            <h6>Jason Momoa</h6>
+                            <p>Lorem Ipsum is simply dummy text..</p>  
+                        </div>
+                    </div>
+                </ng-template>
+                <ng-template carouselSlide>
+                    <div class="slide">
+                        <img src="../assets/images/cast-3.jpg" class="img-fluid">
+                        <div class="cast-text">
+                            <h6>Jeremy Irons</h6>
+                            <p>Lorem Ipsum is simply dummy text..</p>  
+                        </div>
+                    </div>
+                </ng-template>
+                <ng-template carouselSlide>
+                    <div class="slide">
+                        <img src="../assets/images/cast-4.jpg" class="img-fluid">
+                        <div class="cast-text">
+                            <h6>Ciarán Hinds</h6>
+                            <p>Lorem Ipsum is simply dummy text..</p>  
+                        </div>
+                    </div>
+                </ng-template>
+            </owl-carousel-o> 
+        </div>
+      </section>
+      <section class="director-full">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="dr-text">
+                        <ul>
+                            <li><p>Director : <span> Francis Ford Coppola</span></p></li>
+                            <li><p>Writers : <span> Mario Puzo</span></p></li>
+                            <li><p>Photographer : <span> Connie Nielsen</span></p></li>
+                            <li><p>Cameragrapher : <span> Ryan Zheng</span></p></li>
+                        </ul>
+                    </div>
+                    <div class="pr-duc-ul">
+                        <ul>
+                            <li>
+                                <a href="#"><h4>Newo<span> Street</span></h4></a>
+                            </li>
+                            <li>
+                                <a href="#">View Production,</a>
+                            </li>
+                            <li>
+                                <a href="#">Box Office,</a>
+                            </li>
+                            <li>
+                                <a href="#">Company Info</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>  
+        </div>
+      </section>
+     
+<app-footer></app-footer>

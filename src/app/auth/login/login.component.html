@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+      <!--<link rel="stylesheet" href="assets/css/main-index-style.css">-->
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <title>Sign In</title>
+      <style>
+          body{
+              position: fixed;
+              overflow: hidden;
+          }
+      </style>
+  </head>
+  <body>
+    <section class="sign-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="sign-box">
+                        <div class="sign-text">
+                            <h1>Sign In</h1>
+                            <form [formGroup]="angForm" (ngSubmit)="postdata(angForm)" >
+                                <!-- <input type="email" name="email" formControlName="email" class="e-ph" placeholder="Email"> -->
+                                <input type="text" name="mobile" formControlName="mobile" class="e-ph" placeholder="mobile">
+                                <input type="password" name="Password" formControlName="password" class="e-ph" placeholder="Password"> 
+                                <button class="sign-in-btn">Sign In</button> 
+                            </form>
+                            <div class="row mt-top">
+                                <div class="col-md-6 col-6">
+                                    <label class="container-check">Remember me  
+                                      <input type="checkbox">
+                                      <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                <div class="col-md-6 col-6">
+                                    <a href="#" class="nd-help">Need help?</a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="lg-facebook">
+                                        <img src="assets/images/facebook-icon-img.png" class="img-fluid">
+                                        <span class="login-span">Login with Facebook</span>
+                                        <p class="new-p-o">New to Netwood? <a routerLink="/signup"> Sign up now.</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </section>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+section {
+    font-family: 'Roboto', sans-serif;
+}
+.rg-section {
+    padding: 10px 0px;
+}
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.rs-h3-cl a {
+    color: #ffc107;
+    font-size: 17px;
+    display: block;
+}
+.se-m {
+    color: #fff;
+}
+a {
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
+}
+.cafe-netwood {
+    padding: 10px 20px;
+    background: #fff;
+    color: #000;
+    display: inline-block;
+    border-radius: 6px;
+    margin: 10px 20px 0px;
+    font-weight: 600;
+}

@@ -1,0 +1,28 @@
+section{
+    background: #0d1428;
+    font-family: 'Roboto', sans-serif;
+}
+.fb-in-background {
+    background: #9db6e9;
+}
+.insta-in-background {
+    background: #dcb1ef;
+}
+.youtube-in-background {
+    background: #ffc3c3;
+}
+.fb-in-twiter {
+    background: #d9f0ff;
+}
+.youtube-color {
+    background: #FF0000;
+}
+.twitter-color {
+    background: #1DA1F2;
+}
+.form-control {
+    color: #495057;
+}
+.input_user::placeholder{
+    color: #000;
+}

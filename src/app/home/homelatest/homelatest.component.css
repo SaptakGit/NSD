@@ -1,0 +1,10 @@
+section{
+    background: #0d1428;
+    font-family: 'Roboto', sans-serif;
+}
+.ng-text-img {
+    top: 43px;
+}
+a:hover{
+    text-decoration: none;
+}

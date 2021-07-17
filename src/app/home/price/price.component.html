@@ -1,0 +1,113 @@
+<app-header></app-header>
+<section class="pricing">
+    <div class="pricing-head-text">
+        <h1>Plans for any budget so you can start today</h1>
+        <p>We don’t answer to investors so we’re able to keep things simple and affordable. That means no hidden fees or
+            weird data sharing practices. By signing up, you’ll be supporting an indie business that cares about you.
+        </p>
+    </div>
+    <div class="container">
+        <div class="row row-pr-top">
+            <div class="col-md-4">
+                <div class="pricing-box pricing-bx-back-1">
+                    <div class="pricing-img">
+                        <img src="/assets/images/pricing-1-ch.jpg" class="img-fluid">
+                        <form [formGroup]="angForm" (ngSubmit)="postdata(1)">
+                            <div class="pricing-text">
+                                <p>
+                                    <span class="pr-span">$ 90</span>
+                                    <span>OTT</span>
+                                </p>
+                                <button class="buy-btn">Buy Now</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="pricing-down-text-bx">
+                        <h3>Gold features</h3>
+                        <ol>
+                            <li>One image per product</li>
+                            <li>Free customizable themes</li>
+                            <li>Sell online &amp; in person</li>
+                            <li>Real-time stats</li>
+                            <li>Use a custom domain</li>
+                            <li>Offer discounts &amp; run promos</li>
+                            <li>Shipment tracking</li>
+                            <li>Product option groups</li>
+                            <li><strong>New!</strong> Sales tax autopilot</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="pricing-box pricing-bx-back-2">
+                    <div class="pricing-img">
+                        <img src="/assets/images/pricing-2-ch.jpg" class="img-fluid">
+                        <form [formGroup]="angForm" (ngSubmit)="postdata(2)">
+                            <div class="pricing-text">
+                                <p>
+                                    <span class="pr-span">$ 150</span>
+                                    <span>Star Hunt</span>
+                                </p>
+                                <button class="buy-btn">Buy Now</button> 
+                            </div>
+                        </form>
+                    </div>
+                    <div class="pricing-down-text-bx">
+                        <h3>Platinum features</h3>
+                        <ol>
+                            <li>Five images per product</li>
+                            <li>Free customizable themes</li>
+                            <li>Sell online &amp; in person</li>
+                            <li>Real-time stats</li>
+                            <li>Use a custom domain</li>
+                            <li>Theme code editing</li>
+                            <li>Google Analytics</li>
+                            <li>Inventory tracking</li>
+                            <li>Offer discounts &amp; run promos</li>
+                            <li>Bulk editing</li>
+                            <li>Shipment tracking</li>
+                            <li>Product option groups</li>
+                            <li><strong>New!</strong> Sales tax autopilot</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="pricing-box pricing-bx-back-3">
+                    <div class="pricing-img">
+                        <img src="/assets/images/pricing-3-ch.jpg" class="img-fluid">
+                        <form [formGroup]="angForm" (ngSubmit)="postdata(3)">
+                            <div class="pricing-text">
+                                <p>
+                                    <span class="pr-span">$ 300</span>
+                                    <span>All</span>
+                                </p>
+                                <button class="buy-btn">Buy Now</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="pricing-down-text-bx">
+                        <h3>Diamond features</h3>
+                        <ol>
+                            <li>Five images per product</li>
+                            <li>Free customizable themes</li>
+                            <li>Sell online &amp; in person</li>
+                            <li>Real-time stats</li>
+                            <li>Use a custom domain</li>
+                            <li>Theme code editing</li>
+                            <li>Google Analytics</li>
+                            <li>Inventory tracking</li>
+                            <li>Offer discounts &amp; run promos</li>
+                            <li>Bulk editing</li>
+                            <li>Shipment tracking</li>
+                            <li>Product option groups</li>
+                            <li><strong>New!</strong> Sales tax autopilot</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<app-footer></app-footer>

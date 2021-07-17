@@ -1,0 +1,868 @@
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!--particle-js-->
+<script src="../../../assets/js/particles.js"></script>
+<script src="../../../assets/js/app.js"></script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.2/croppie.min.css" />
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="../../../assets/js/croppie.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+<script>
+  $('.select2').select2();
+</script>
+<script>
+  console.log("hello from footer");
+  if (typeof jQuery !== 'undefined') {
+    console.log('jQuery Loaded');
+  }
+  else {
+    console.log('not loaded yet');
+  }
+</script>
+
+<!--particle-js-->
+<script>
+  if (localStorage.getItem('addClass') == "hide_popup") {
+    $("#first_popup").addClass("hide_popup");
+  } else {
+    $("#first_popup").removeClass("hide_popup");
+    setTimeout(function () {
+      $("#first_popup").addClass("hide_popup");
+      localStorage.setItem('addClass', "hide_popup");
+    }, 8000);
+  }
+
+  $('#popup_close').on('click', function () {
+    localStorage.setItem('addClass', "hide_popup");
+    $("#first_popup").addClass("hide_popup");
+
+
+  });
+
+  function more_online() {
+
+    $("#more_online_modal").modal('show');
+  }
+  function physical_contest() {
+    $("#physical_modal").modal('show');
+
+  }
+ ///
+
+
+</script>
+
+
+
+
+
+<script>  //playing the video is english
+  function play_english() {
+    $("#video-1").hide();
+    $("#video-3").hide();
+    $("#video-2").show();
+    var vid_eng = document.getElementById("video-eng");
+    var vid_hin = document.getElementById("video-hin");
+    vid_eng.muted = false;
+    vid_hin.muted = true;
+  }
+  //playing the video is hindi
+  function play_hindi() {
+    $("#video-1").hide();
+    $("#video-2").hide();
+    $("#video-3").show();
+    var vid_eng = document.getElementById("video-eng");
+    var vid_hin = document.getElementById("video-hin");
+    vid_eng.muted = true;
+    vid_hin.muted = false;
+  }
+  //next_div previously placed here
+  //prev_ div previously placed here
+  // grom_next and groom_prev
+  function groom_next() {
+    $("#groom_1").hide();
+    $("#groom_2").show();
+  }
+  function groom_prev() {
+    $("#groom_2").hide();
+    $("#groom_1").show();
+  }
+
+</script>
+<script>
+  function play_english() {
+    $("#video-1").hide();
+    $("#video-3").hide();
+    $("#video-2").show();
+    var vid_eng = document.getElementById("video-eng");
+    var vid_hin = document.getElementById("video-hin");
+    vid_eng.muted = false;
+    vid_hin.muted = true;
+  }
+  function play_hindi() {
+    $("#video-1").hide();
+    $("#video-2").hide();
+    $("#video-3").show();
+    var vid_eng = document.getElementById("video-eng");
+    var vid_hin = document.getElementById("video-hin");
+    vid_eng.muted = true;
+    vid_hin.muted = false;
+  }
+
+  function prev_div() {
+    $("#fist-div-registration").show();
+    $("#applyCustom .select-selected").html('Select');
+    $("#applyCustom .select-items div").removeClass('same-as-selected');
+    $("#applyValue").val('');
+    $("#phase_div .select-selected").html('Select');
+    $("#phase_div .select-items div").removeClass('same-as-selected');
+    // $("#venue").removeAttr('required', true);
+    $('.aud_type[value="Online"]').prop('checked', false);
+    $('.aud_type[value="Physical"]').prop('checked', false);
+    $('#apply_for_div').hide();
+    $('#register_div').hide();
+    $("#venue_div .select-selected").html('');
+    $("#venueDateShow .select-selected").html('');
+    $("#venuAdd").html('');
+    $("#scand-div-registration").hide();
+  }
+  function groom_next() {
+    $("#groom_1").hide();
+    $("#groom_2").show();
+  }
+  function groom_prev() {
+    $("#groom_2").hide();
+    $("#groom_1").show();
+  }
+
+</script>
+<!-- mrityunjoy add this start -->
+<script>
+  document.body.setAttribute("class", "noscroll");
+
+  $("#overlay_layout").css('display') == 'block';
+  $("#spinner").css('display') == 'block';
+  window.onload = function () {
+    $("#spinner").css('display') == 'none';
+    $("#overlay_layout").css('display') == 'none';
+
+    document.body.className = document.body.className.replace(/\bnoscroll\b/, '');
+  }
+
+  $(document).ready(function () {
+
+    $image_crop = $('#image_demo').croppie({
+      enableExif: true,
+      viewport: {
+        width: 350,
+        height: 350,
+        type: 'square' //circle
+      },
+      boundary: {
+        width: 400,
+        height: 400
+      }
+    });
+
+    $('#imgInp').on('change', function () {
+      var reader = new FileReader();
+      reader.onload = function (event) {
+        $image_crop.croppie('bind', {
+          url: event.target.result
+        }).then(function () {
+          console.log('jQuery bind complete');
+        });
+      }
+      reader.readAsDataURL(this.files[0]);
+      $('#uploadimageModal').css('display', 'block');
+    });
+
+    $('.crop_image').click(function (event) {
+      $image_crop.croppie('result', {
+        type: 'canvas',
+        size: 'viewport'
+      }).then(function (response) {
+
+        $('#uploadimageModal').css('display', 'none');
+        $('#blah').attr('src', response);
+        $('#imgInp1').val(response);
+
+      })
+    });
+
+    $('.close').click(function (event) {
+      $('#imgInp').val('');
+      $('#uploadimageModal').css('display', 'none');
+    });
+
+  });
+</script>
+
+
+<script>
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        $('#blah').attr('src', e.target.result);
+      }
+
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+
+</script>
+
+<script>
+
+  /*function addclass(id, value) {
+    var new_src = "<?php  echo base_url(); ?>../assets/images/loader_form.gif";
+    $("#response").attr("src", new_src);
+
+    appyleramounttadekhanorjonno(id);
+    $(this).addClass('same-as-selected');
+    $("#applyCustom .select-selected").text(value);
+
+
+    $('#pdfUploadjpg').val('');
+    $('#applyCustom select option[value=' + id + ']').attr('selected', 'selected');
+    $('#venue_div select option[value=""]').attr('selected', 'selected');
+    $('#venueDateShow select option[value=""]').attr('selected', 'selected');
+
+    $('#venue_div .select-items div').removeAttr('class');
+    $('#venueDateShow .select-items').html('');
+
+  }
+
+  function addclassDate(id, value) {
+    $(this).addClass('same-as-selected');
+    $("#venueDateShow .select-selected").text(value);
+    $('#venueDateShow select option[value=' + id + ']').attr('selected', 'selected');
+  }
+
+  function addclassVenue(id, value) {
+
+    $(this).addClass('same-as-selected');
+    $("#venue_div .select-selected").text(value);
+    $('#venue_div select option[value=' + id + ']').attr('selected', 'selected');
+    console.log(id);
+    venue_div(id);
+  }
+
+
+
+  //start dob works from here
+  // $(function () {
+  //   $('input[name="dob"]').daterangepicker({
+  //     autoUpdateInput: false,
+  //     singleDatePicker: true,
+  //     showDropdowns: true,
+  //     //showButtonPanel: false,
+  //     minYear: 1901,
+  //     maxYear: parseInt(moment().format('YYYY'), 10),
+  //     locale: {
+  //       //cancelLabel: 'Clear',
+  //       format: 'DD-MM-YYYY'
+  //     }
+  //   }, function (start, end, label) {
+  //     $(this.element).val(start.format('DD-MM-YYYY'));
+  //     var years = moment().diff(start, 'years');
+  //     if (years <= minorAge && years >= minAge) {
+  //       $("#below_age").val(0);
+  //       $("#years").val(years);
+  //       $('#age').val('Age Below 18 fill-up Parent Details');
+  //       $("#guardianInfo").show('slow');
+  //       $("#parent_detail").show('slow');
+  //       $("#relation").show('slow');
+  //       $("#address_guardian").show('slow');
+  //       $("#state_guardian").show('slow');
+  //       $("#mobile_guardian").show('slow');
+  //       $("#parent").attr('required', 'required');
+  //       $("#guardian_rel").attr('required', 'required');
+  //       $("#guardian_add").attr('required', 'required');
+  //       $("#guardian_st").attr('required', 'required');
+  //       $("#guardian_phone").attr('required', 'required');
+  //       $("#submit").attr("disabled", false);
+  //     }
+  //     else {
+
+  //       if (years <= maxAge && years >= minAge) {
+  //         $("#below_age").val(1);
+  //         $("#years").val(years);
+  //         $('#age').val('You Are Eligible, Your Age is ' + years);
+  //         $("#guardianInfo").hide('slow');
+  //         $("#parent_detail").hide('slow');
+  //         $("#relation").hide('slow');
+  //         $("#address_guardian").hide('slow');
+  //         $("#state_guardian").hide('slow');
+  //         $("#mobile_guardian").hide('slow');
+  //         $("#parent").removeAttr("required");
+  //         $("#guardian_rel").removeAttr("required");
+  //         $("#guardian_add").removeAttr("required");
+  //         $("#guardian_st").removeAttr("required");
+  //         $("#guardian_phone").removeAttr("required");
+  //         $("#submit").attr("disabled", false);
+
+
+
+  //       }
+  //       else {
+  //         if (years < minAge) {
+  //           $("#below_age").val(2);
+
+  //           $('#age').val('Your age is ' + years + ' You Are Not Eligible');
+  //           $("#guardianInfo").hide('slow');
+  //           $("#parent_detail").hide('slow');
+  //           $("#relation").hide('slow');
+  //           $("#address_guardian").hide('slow');
+  //           $("#state_guardian").hide('slow');
+  //           $("#mobile_guardian").hide('slow');
+  //           $("#parent").removeAttr("required");
+  //           $("#guardian_rel").removeAttr("required");
+  //           $("#guardian_add").removeAttr("required");
+  //           $("#guardian_st").removeAttr("required");
+  //           $("#guardian_phone").removeAttr("required");
+  //           $("#submit").attr("disabled", true);
+  //         }
+  //         else {
+  //           if (years > maxAge) {
+  //             $("#below_age").val(2);
+
+  //             $('#age').val('Your age is ' + years + ' You Are Not Eligible');
+  //             $("#guardianInfo").hide('slow');
+  //             $("#parent_detail").hide('slow');
+  //             $("#relation").hide('slow');
+  //             $("#address_guardian").hide('slow');
+  //             $("#state_guardian").hide('slow');
+  //             $("#mobile_guardian").hide('slow');
+  //             $("#parent").removeAttr("required");
+  //             $("#guardian_rel").removeAttr("required");
+  //             $("#guardian_add").removeAttr("required");
+  //             $("#guardian_st").removeAttr("required");
+  //             $("#guardian_phone").removeAttr("required");
+  //             $("#submit").attr("disabled", true);
+  //           }
+  //         }
+  //       }
+  //     }
+  //   });
+  // });
+
+
+  // //keyup=enter
+  // $('input[name="dob"]').keyup(function () {
+  //   var dob = $('input[name="dob"]').val();
+  //   //alert(dob);
+  //   if (dob == '') {
+  //     $("#applyFor").html('<option value="">Applying for</option>');
+  //     $("#applyCustom .select-selected").text('Applying For');
+  //     $("#applyCustom .select-items").html('<div>Enter Date of Birth</div>');
+  //     $('#age').val('');
+  //   }
+
+  // });
+
+
+
+  // $(document).ready(function () {
+  //   $("#applyCustom .select-items").html('<div>Please enter Date of Birth first</div>');
+  //   $("#venueDateShow .select-items").html('<div>Please select Venue first</div>');
+  // });*/
+</script>
+
+<script>
+  /*function appyleramounttadekhanorjonno(applyFor_id) {
+    //alert('okk');exit();
+
+    //alert(applyFor_id);exit();
+    $('#response').show();
+
+    if (applyFor_id != "") {
+      $.ajax({
+        url: "<?=base_url();?>form/getApplyForData",
+        method: "POST",
+        data: { applyFor_id: applyFor_id },
+        success: function (data) {
+          //alert(data);
+          $("#applyValue").val(data);
+          $('#response').hide();
+        }
+      });
+
+      //////////////////////////
+
+
+      $.ajax({
+        url: "<?=base_url();?>form/getApplyVirtual",
+        method: "POST",
+        data: { applyFor_id: applyFor_id },
+        success: function (response) {
+          if (response == 1) {
+            //alert('response');
+            //$("#txtUpload").show('slow');
+
+            $("#txtAge").hide('slow');
+            $("#venue").removeAttr("required");
+            $("#venuData").removeAttr("required");
+
+            $('#auditiontype').hide('slow');
+
+            $('.aud_type').removeAttr("required");
+
+
+            $("#venue option[value='']").attr('selected', 'selected');
+            $("#venuData option[value='']").attr('selected', 'selected');
+
+            $("#pdfUploadjpg").attr('required', 'required');
+            $("#venuAdd").hide('slow');
+
+            $('#linkdetails').show('slow');
+
+            if (applyFor_id == 14) {
+
+              $("#filecheck").val('0');
+              $("#pdfUploadjpg").attr('accept', '.mp4');
+              $("#pdfUploadjpg").attr('placeholder', 'Upload mp4 File');
+
+            } else {
+
+              $("#filecheck").val('1');
+              $("#pdfUploadjpg").attr('accept', '.doc, .docx, .pdf');
+              $("#pdfUploadjpg").attr('placeholder', 'Upload pdf or word File');
+              $('#mp4Tag').hide('slow');
+              $('#pdfTag').hide('slow');
+            }
+
+
+          } else {
+            $("#filecheck").val('1');
+
+            var aud_type = $("input[name='aud_type']:checked").val();
+            $('#auditiontype').show('slow');
+            $('#pdfTag').hide('slow');
+            $('#mp4Tag').hide('slow');
+            if (aud_type == 'Physical') {
+              $("#txtAge").show('slow');
+              $("#venue").attr('required', 'required');
+              $("#venuData").attr('required', 'required');
+
+            } else {
+              $("#txtAge").hide('slow');
+              $("#venue").removeAttr('required', 'required');
+              $("#venuData").removeAttr('required', 'required');
+
+            }
+
+            $('.aud_type').attr("required", "required");
+
+            $('#linkdetails').show('slow');
+            //$("#video_link").removeAttr("required");
+
+            $("#pdfUploadjpg").removeAttr('required');
+
+            $("#venue option[value='']").attr('selected', 'selected');
+            $("#venuData option[value='']").attr('selected', 'selected');
+          }
+        }
+      });
+
+
+
+      /////////////////////////////
+    }
+    else {
+      $("#applyValue").html('');
+      //////////////////////
+      //$("#txtUpload").hide('slow');
+      $("#txtAge").show('slow');
+      $("#pdfUpload").removeAttr("required");
+      $("#venue").attr('required', 'required');
+      $("#venuData").attr('required', 'required');
+      // $("#video_link").removeAttr("required");
+      $('#linkdetails').show('slow');
+      $("#filecheck").val('1');
+
+      $("#venue option[value='']").attr('selected', 'selected');
+      $("#venuData option[value='']").attr('selected', 'selected');
+      /////////////////////////////////
+    }
+  }
+
+</script>
+
+
+
+<script>
+
+  /*function venue_div(venue_id) {
+    alert(1);
+
+    $("#venueDateShow .select-selected").html('Select');
+    $("#venueDateShow .select-items div").removeClass('same-as-selected');
+    //$("#venueDate").val("");
+    console.log(venue_id);
+
+    $('#response').show();
+    if (venue_id != "") {
+      $.ajax({
+        url: "<?=base_url();?>form/getVenueData",
+        method: "POST",
+        dataType: "json",
+        data: { venue_id: venue_id },
+        success: function (data) {
+          $("#venuData").html(data.output);
+          $("#venueDateShow .select-items").html(data.selectDiv);
+          $('#response').hide();
+        }
+      });
+
+      $.ajax({
+        url: "<?=base_url();?>home/getVenueAdd",
+        method: "POST",
+        data: { venue_id: venue_id },
+        success: function (data) {
+          $("#venuAdd").show('slow');
+          $("#venuAdd").html(data);
+          $('#response').hide();
+        }
+      });
+
+    }
+    else {
+      $("#venuData").html('<option value="">Select Venue date</option>');
+      $("#venuAdd").hide('slow');
+      $("#venuAdd").html('');
+    }
+  }
+  $(document).ready(function () {
+
+    $('#occup_opt .select-items div, #state').on('click change', function (e) {
+      $("#phase_div .select-selected").html('Select');
+      $("#phase_div .select-items div").removeClass('same-as-selected');
+
+      //var state = $("#occup_opt .select-selected").html();
+      var state = $("#state").val();
+      var audition_type = $('input[name="aud_type"]:checked').val();
+      // alert(state);
+      if (state == 'West Bengal') {
+        alert('wb');
+
+
+
+        var divs = $("#phase_div .select-items div");
+
+        for (var x = 0; x < divs.length; x++) {
+          var div = divs[x];
+          var content = div.innerHTML.trim();
+
+
+          if (audition_type == 'Online') {
+            // $('#phase option[value=2]').show();
+            $('#phase option[value=2]').show();
+            $('#phase option[value=1]').hide();
+          } else {
+            $('#phase option[value=1]').show();
+            $('#phase option[value=2]').hide();
+          }
+        }
+      } else {
+        alert('m/c/o');
+        if (state == 'Madhya Pradesh' || state == 'Chhattisgarh' || state == 'Odisha') {
+          $('#phase option[value=1]').hide();
+          $('#phase option[value=3]').hide();
+          var divs = $("#phase_div .select-items div");
+          for (var x = 0; x < divs.length; x++) {
+            var div = divs[x];
+            var content = div.innerHTML.trim();
+            alert(11);
+            if (content == 'Phase - 3') {
+              div.style.display = 'block';
+            } else {
+              div.style.display = 'none';
+            }
+          }
+        } else {
+          alert('others');
+
+          $('#phase option[value=1]').hide();
+          $('#phase option[value=2]').hide();
+
+          var divs = $("#phase_div .select-items div");
+
+          for (var x = 0; x < divs.length; x++) {
+            var div = divs[x];
+            var content = div.innerHTML.trim();
+
+            if (content == 'Phase - 1' || content == 'Phase - 2') {
+              div.style.display = 'none';
+            } else {
+              div.style.display = 'block';
+            }
+          }
+        }
+      }
+
+    });
+  });
+
+  $(document).ready(function () {
+    $('#phase_div .select-items div').click(function () {
+      var state = $("#occup_opt .select-selected").html();
+      if (state != 'Select') {
+        var phase = $('option:selected', '#phase_div select').data('id');
+
+        if (phase != "") {
+          $.ajax({
+            url: "<?=base_url();?>form/getVenueDetails",
+            method: "POST",
+            data: { phase: phase },
+            dataType: "json",
+            success: function (data) {
+
+              $("#venue_div .select-selected").html('');
+              $("#venueDateShow .select-selected").html('');
+              $("#venuAdd").html('');
+
+              $("#venue").html(data.outputSe);
+              $("#venue_div .select-items").html(data.selectDiv);
+            }
+          });
+        } else {
+          $("#venu").html('<option value="">Select Venue</option>');
+          $("#venu_div .select-selected").html('Select');
+          $("#venuAdd").text('');
+        }
+      } else {
+        $("#phase_div .select-selected").html('Select');
+        $("#phase_div .select-items div").removeClass('same-as-selected');
+        swal({
+          title: "Warning!",
+          text: "State Not Selected",
+          icon: "warning",
+          button: "Okk",
+        });
+      }
+    });
+  });
+*/
+
+
+
+</script>
+
+
+
+<script>
+
+  /* function validateForm() {
+ 
+     var jpg = $('#pdfUploadjpg').val();
+ 
+ 
+     var video_link = $('#video_link').val();
+ 
+     if ($("#filecheck").val() == 0) {
+       if (jpg == "") {
+ 
+         if (video_link == "") {
+           alert("No file selected for upload, Please select atleast one file for upload or Share Video Link");
+           return false;
+         } else {
+           return true;
+         }
+ 
+       } else {
+         return true;
+       }
+     } else {
+       return true;
+     }
+   }
+ 
+   //////////////////////////////
+   function _(el) {
+     return document.getElementById(el);
+   }
+ 
+   function pdfwordmp4Check() {
+     var file = $('#pdfUploadjpg').val();
+     var get_ext = file.replace(/^.*\./, '');
+     if (get_ext == 'mp4' || get_ext == 'pdf' || get_ext == 'doc' || get_ext == 'docx') {
+       var file1 = _("pdfUploadjpg").files[0];
+       // alert(file.name+" | "+file.size+" | "+file.type);
+       var formdata = new FormData();
+       formdata.append("pdfUploadjpg", file1);
+ 
+ 
+     } else {
+       //alert('Please select jpg file only');
+       $('#pdfUploadjpg').val('');
+     }
+   }
+ 
+   function pdfCheck() {
+     var file = $('#pdfUploadpdf').val();
+     var get_ext = file.replace(/^.*\./, '');
+     if (get_ext == 'pdf') {
+ 
+     } else {
+       alert('Please select pdf file only');
+       $('#pdfUploadpdf').val('');
+     }
+   }
+ 
+   function mp4Check() {
+     var file = $('#pdfUploadmp4').val();
+     var get_ext = file.replace(/^.*\./, '');
+     if (get_ext == 'mp4') {
+ 
+     } else {
+       alert('Please select mp4 file only');
+       $('#pdfUploadmp4').val('');
+     }
+   }
+ 
+   function mp3Check() {
+     var file = $('#pdfUploadmp3').val();
+     var get_ext = file.replace(/^.*\./, '');
+     if (get_ext == 'mp3') {
+ 
+     } else {
+       alert('Please select mp3 file only');
+       $('#pdfUploadmp3').val('');
+     }
+   }*/
+</script>
+
+
+
+<script>
+  /* function openCity(evt, cityName) {
+     var i, tabcontent, tablinks;
+     tabcontent = document.getElementsByClassName("tabcontent");
+     for (i = 0; i < tabcontent.length; i++) {
+       tabcontent[i].style.display = "none";
+     }
+     tablinks = document.getElementsByClassName("tablinks");
+     for (i = 0; i < tablinks.length; i++) {
+       tablinks[i].className = tablinks[i].className.replace(" active", "");
+     }
+     document.getElementById(cityName).style.display = "block";
+     evt.currentTarget.className += " active";
+   }*/
+</script>
+<script>
+//   var x, i, j, selElmnt, a, b, c;
+//   /*look for any elements with the class "custom-select":*/
+//   x = document.getElementsByClassName("custom-select");
+//   for (i = 0; i < x.length; i++) {
+//     selElmnt = x[i].getElementsByTagName("select")[0];
+//     /*for each element, create a new DIV that will act as the selected item:*/
+//     a = document.createElement("DIV");
+//     a.setAttribute("class", "select-selected");
+//     a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+//     x[i].appendChild(a);
+//     /*for each element, create a new DIV that will contain the option list:*/
+//     b = document.createElement("DIV");
+//     b.setAttribute("class", "select-items select-hide");
+//     for (j = 1; j < selElmnt.length; j++) {
+//       /*for each option in the original select element,
+//       create a new DIV that will act as an option item:*/
+//       c = document.createElement("DIV");
+//       c.innerHTML = selElmnt.options[j].innerHTML;
+//       c.addEventListener("click", function (e) {
+//         /*when an item is clicked, update the original select box,
+//         and the selected item:*/
+//         var y, i, k, s, h;
+//         s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+//         h = this.parentNode.previousSibling;
+//         for (i = 0; i < s.length; i++) {
+//           if (s.options[i].innerHTML == this.innerHTML) {
+//             s.selectedIndex = i;
+//             h.innerHTML = this.innerHTML;
+//             y = this.parentNode.getElementsByClassName("same-as-selected");
+//             for (k = 0; k < y.length; k++) {
+//               y[k].removeAttribute("class");
+//             }
+//             this.setAttribute("class", "same-as-selected");
+//             break;
+//           }
+//         }
+//         h.click();
+//       });
+//       b.appendChild(c);
+//     }
+//     x[i].appendChild(b);
+//     a.addEventListener("click", function (e) {
+//       /*when the select box is clicked, close any other select boxes,
+//       and open/close the current select box:*/
+//       e.stopPropagation();
+//       changeStateReg(this);
+//       closeAllSelect(this);
+//       this.nextSibling.classList.toggle("select-hide");
+//       this.classList.toggle("select-arrow-active");
+//     });
+//   }
+//   function closeAllSelect(elmnt) {
+//     /*a function that will close all select boxes in the document,
+//     except the current select box:*/
+//     var x, y, i, arrNo = [];
+//     x = document.getElementsByClassName("select-items");
+//     y = document.getElementsByClassName("select-selected");
+//     for (i = 0; i < y.length; i++) {
+//       if (elmnt == y[i]) {
+//         arrNo.push(i)
+//       } else {
+//         y[i].classList.remove("select-arrow-active");
+//       }
+//     }
+//     for (i = 0; i < x.length; i++) {
+//       if (arrNo.indexOf(i)) {
+//         x[i].classList.add("select-hide");
+//       }
+//     }
+//   }
+
+//   document.addEventListener("click", closeAllSelect);
+// </script>
+//
+<script>
+//   function loadFunction1() {
+//     var apply_for = $('#apply_for').val();
+//     if (apply_for == '') {
+//       $('#applyCustom').css('border', '1px solid red;');
+//     }
+
+//     $("#paymentSubmit").attr("disabled", "disabled");
+//     $(".se-pre-con").show();
+//     $(".se-pre-con").fadeOut("slow");
+//   }
+
+// </script>
+
+
+
+<script>
+  $(document).ready(function () {
+    var divs = $("#phase_div .select-items div");
+
+    for (var x = 0; x < divs.length; x++) {
+      var div = divs[x];
+      var content = div.innerHTML.trim();
+      div.style.display = 'none';
+    }
+  })
+
+  //physical and online functionality
+
+  
+</script>

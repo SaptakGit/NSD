@@ -1,0 +1,166 @@
+.header {
+    padding: 4px 0px 0px;
+    background: #000;
+    border-bottom: 3px solid #d5dd25;
+    height: 46px;
+}
+.owl-theme .owl-nav.disabled+.owl-dots {
+    margin-top: -41px !important;
+    z-index: 999 !important;
+    position: relative !important;
+}
+.tg-width{
+    width: 100%;
+}
+.name-pl{
+    font-size: 21px !important;
+    text-transform: uppercase !important;
+    color: #ffc107 !important;  
+}
+.br-bt {
+    border-bottom: 1px solid #fff;  
+    margin: 0px 21px;
+}
+.net-an-img{
+    width: 50%;
+    display: block;
+    margin: 0 auto;
+    margin-top: 2px;
+}
+.netwood-toogle{
+    width: 27%;
+}
+.owl-theme .owl-nav.disabled+.owl-dots {
+    margin-top: -25px;
+}
+/***********************sidenav***********************/
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 13px;
+  }
+  
+  .sidenav a {
+      padding: 8px 8px 8px 9px;
+      text-decoration: none;
+      font-size: 19px;
+      color: #ffffff;
+      display: block;
+      transition: 0.3s;
+  }
+  
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+  
+  .sidenav .closebtn {
+      position: absolute;
+      top: 0px;
+      right: 25px;
+      font-size: 36px;
+      margin-left: 50px;    
+  }
+  .sp-color{
+      font-size: 30px;
+      cursor: pointer;
+      display: block;
+      color: #fff;
+  }
+  /***********************sidenav***********************/
+  /***********************sidenav-search***********************/
+  .sidenav-search {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    right: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+  
+  .sidenav-search a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidenav-search a:hover {
+    color: #f1f1f1;
+  }
+  
+  .sidenav-search .closebtn {
+      position: absolute;
+      top: -54px;
+      right: 42px;
+      font-size: 36px;
+      margin-left: 50px;
+      display: block;
+      color: #fff;
+  }
+  .sp-color-search{
+      font-size: 20px;
+      cursor: pointer;
+      text-align: right;
+      position: relative;
+      top: 0px;
+      color: #fff;
+      display: block;
+  } 
+  /*search*/
+  .search-input{
+      width: 100%;
+      border-bottom: 1px solid #fff;
+      background: transparent;
+      border-top: none;
+      padding: 10px 10px;
+      border-left: none;
+      border-right: none;
+      
+  }
+  .btn-i-div{
+     background: transparent;
+      border: none;
+      text-align: center; 
+  }
+  .btn-i-div i{
+      color: #fff;
+      font-size: 26px;
+  }
+  .seach-div{
+      padding: 0px 12px;
+  }
+  .rs-h3-cl a{
+      color: #ffc107;
+      font-size: 17px;
+      display: block;
+  }
+  .rs-h3-cl a span{
+      font-size: 13px;
+  }
+  .rg-section{
+      padding: 10px 0px;
+  }
+  .sp-color{
+    font-size: 30px;
+    cursor: pointer; 
+    display: block;
+    color: #fff;
+}
+.netwood-toogle{
+    width: 27% !important;
+    display: block !important;
+}
+  /***********************sidenav-search***********************/

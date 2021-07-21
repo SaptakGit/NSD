@@ -13,8 +13,8 @@ export class LoginComponent implements OnInit {
   angForm: FormGroup;
   constructor(private fb: FormBuilder,private dataService: ApiService,private router:Router) {
     this.angForm = this.fb.group({
-      // email: ['', [Validators.required,Validators.minLength(1), Validators.email]],
-      mobile: ['', Validators.required],
+      email: ['', [Validators.required,Validators.minLength(1), Validators.email]],
+      //mobile: ['', Validators.required],
       password: ['', Validators.required]
     });
   }
@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
 
   postdata(angForm1)
   { //alert(angForm1.value.mobile); //deb
-    this.dataService.userlogin(angForm1.value.mobile,angForm1.value.password)
+    this.dataService.userlogin(angForm1.value.email,angForm1.value.password)
     .pipe(first())
     .subscribe(
     data => {

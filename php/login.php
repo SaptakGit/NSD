@@ -11,7 +11,7 @@ if(isset($postdata) && !empty($postdata))
     //$sql = "SELECT * FROM newo_users where phone='$phone' and password='$pwd'";
     $sql = "CALL login_process('$email','$pwd')";
     //echo $sql;die;
-    if($result = mysqli_query($mysqli,$sql))
+    if($result = mysqli_query($mysqli,$sql)) 
     {
         $rows = array();
         while($row = mysqli_fetch_assoc($result))

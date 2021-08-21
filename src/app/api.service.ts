@@ -13,13 +13,13 @@ export class ApiService {
 
   constructor(private httpClient : HttpClient) { }
 
-  public userlogin(mobile, password) {
+  public userlogin(email, password) {
      //alert(mobile);
      //alert(password);
-    return this.httpClient.post<any>(this.baseUrl + '/login.php', { mobile, password })
+    return this.httpClient.post<any>(this.baseUrl + '/login.php', { email, password })
     .pipe(map(Users => {
     // alert(JSON.stringify(Users));
-    this.setToken(Users[0].phone);
+    this.setToken(Users[0].email);
    
 
     this.getLoggedInName.emit(true);
@@ -30,33 +30,33 @@ export class ApiService {
   public userregistration(name,phone,email,pwd) {
     return this.httpClient.post<any>(this.baseUrl + '/register.php', { name, phone, email, pwd })
     .pipe(map(Users => {
-    this.setToken(phone);
+    this.setToken(email);
     this.getLoggedInName.emit(true);
     return Users;
     }));
   }
 
   public payment_ott(type) {
-    var userphone:string = this.getToken();
-     return this.httpClient.post<any>(this.baseUrl + '/payment.php', { type,userphone });
+    var useremail:string = this.getToken();
+     return this.httpClient.post<any>(this.baseUrl + '/payment.php', { type,useremail });
   }
 
-  public usersubscribe(netwood_phone,games_phone,starhunt_phone) {
+  public usersubscribe(netwood_email,games_email,starhunt_email) {
     
     var primary:string=this.getToken();
 	
-    var netwoodphone:string = netwood_phone;
-    var gamesphone:string = games_phone;
-    var starhuntphone:string = starhunt_phone;
+    var netwoodemail:string = netwood_email;
+    var gamesemail:string = games_email;
+    var starhuntemail:string = starhunt_email;
 	
 	var count:number=0;
-    if(primary==netwoodphone) count++;
-    if(primary==gamesphone) count++;
-    if(primary==starhuntphone) count++;
+    if(primary==netwoodemail) count++;
+    if(primary==gamesemail) count++;
+    if(primary==starhuntemail) count++;
     if(count==0)
 		alert("subscribe atleast one primary numbr");
     else 
-		return this.httpClient.post<any>(this.baseUrl + '/usersubscription.php', { primary,netwoodphone,gamesphone,starhuntphone }); 
+		return this.httpClient.post<any>(this.baseUrl + '/usersubscription.php', { primary,netwoodemail,gamesemail,starhuntemail }); 
 	 
   }
   

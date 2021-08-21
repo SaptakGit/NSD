@@ -13,8 +13,8 @@ export class SubcriptionComponent implements OnInit {
   angForm: FormGroup;
   constructor(private _Activatedroute:ActivatedRoute,private fb: FormBuilder,private dataService: ApiService,private router:Router) {
     this.angForm = this.fb.group({
-      // email: ['', [Validators.required,Validators.minLength(1), Validators.email]],
-      netwood_phone: ['', Validators.required],
+      netwood_email: ['', [Validators.required,Validators.minLength(1), Validators.email]],
+      //netwood_phone: ['', Validators.required],
      
     });
 
@@ -30,16 +30,16 @@ export class SubcriptionComponent implements OnInit {
     
 
     this.angForm = new FormGroup({
-      netwood_phone: new FormControl(this.data),
-      newogames_phone: new FormControl(this.data),
-      starhunt_phone: new FormControl(this.data),
+      netwood_email: new FormControl(this.data),
+      newogames_email: new FormControl(this.data),
+      starhunt_email: new FormControl(this.data),
    });
 
   }
 
   subscribe(angForm1) 
     {
-      this.dataService.usersubscribe(angForm1.netwood_phone,angForm1.newogames_phone,angForm1.starhunt_phone).subscribe((result)=>{
+      this.dataService.usersubscribe(angForm1.netwood_email,angForm1.newogames_email,angForm1.starhunt_email).subscribe((result)=>{
       if(result.code==1){
 		alert('User Subscription Successfully Completed!');
 		const redirect = this.dataService.redirectUrl ? this.dataService.redirectUrl : '';
@@ -53,7 +53,7 @@ export class SubcriptionComponent implements OnInit {
     })
     }
 
-    get netwood_phone() { return this.angForm.get('netwood_phone'); }
+    get netwood_email() { return this.angForm.get('netwood_phone'); }
 
 }
 /*function subscribe(angForm1: any) {

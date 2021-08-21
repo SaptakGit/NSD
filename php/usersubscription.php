@@ -6,15 +6,15 @@ if(isset($postdata) && !empty($postdata))
 {
 	$request = json_decode($postdata);
 	$primary = mysqli_real_escape_string($mysqli, trim($request->primary));
-	$netwood_phone = mysqli_real_escape_string($mysqli, trim($request->netwoodphone));
-	$games_phone = mysqli_real_escape_string($mysqli, trim($request->gamesphone));
-	$starhunt_phone = mysqli_real_escape_string($mysqli, trim($request->starhuntphone));
+	$netwood_email = mysqli_real_escape_string($mysqli, trim($request->netwoodemail));
+	$games_email = mysqli_real_escape_string($mysqli, trim($request->gamesemail));
+	$starhunt_email = mysqli_real_escape_string($mysqli, trim($request->starhuntemail));
 	
 	$selMain = "SELECT id, name, phone, email, status FROM newo_users WHERE phone = '".$primary."'";
 	$resMain = $mysqli->query($selMain);
 	$rowMain = $resMain -> fetch_assoc();
 	
-	if($primary == $netwood_phone){
+	if($primary == $netwood_email){
 		$i = 1;
 	}
 	else{
@@ -23,27 +23,30 @@ if(isset($postdata) && !empty($postdata))
 		$rowOldOtt = $resOldOtt -> fetch_assoc();
 		
 		$ottPass = randomPassword(8);
-		$newOttUser = "INSERT INTO newo_users(name,phone,email,password,created_ts) VALUES('".$rowMain['name']."','".$netwood_phone."','".$rowMain['email']."','".$ottPass."',NOW())";
+		$newOttUser = "INSERT INTO newo_users(parent_id,email,password,created_ts) VALUES('".$rowOldOtt['id']."','".$netwood_email."','".$ottPass."',NOW())";
 		$resNewOttUser = $mysqli->query($newOttUser);
 		
-		$sqlOtt = "UPDATE ott_subscription SET ott_username = '".$netwood_phone."' WHERE id = '".$rowOldOtt['id']."'";
+		$sqlOtt = "UPDATE ott_subscription SET ott_username = '".$netwood_email."' WHERE id = '".$rowOldOtt['id']."'";
 		$resOtt = $mysqli->query($sqlOtt);
 	}
 	
-	if($primary == $games_phone){
+	if($primary == $games_email){
 		$i = 1;
 	}
 	else{
 		$selOldGame = "SELECT id FROM game_subscription WHERE game_username = '".$primary."'";
 		$resOldGame = $mysqli->query($selOldGame);
 		$rowOldGame = $resOldGame -> fetch_assoc();
-		//echo $rowOldGame['id'];die;
+		
 		$gamePass = randomPassword(8);
-		$sqlGame = "UPDATE game_subscription SET game_username = '".$games_phone."', game_password = '".$gamePass."' WHERE id = '".$rowOldGame['id']."'";
+		$newGameUser = "INSERT INTO newo_users(parent_id,email,password,created_ts) VALUES('".$rowOldGame['id']."','".$games_email."','".$gamePass."',NOW())";
+		$resNewGameUser = $mysqli->query($newGameUser);
+
+		$sqlGame = "UPDATE game_subscription SET game_username = '".$games_email."' WHERE id = '".$rowOldGame['id']."'";
 		$resGame = $mysqli->query($sqlGame);
 	}
 	
-	if($primary == $starhunt_phone){
+	if($primary == $starhunt_email){
 		$i = 1;
 	}
 	else{
@@ -52,7 +55,10 @@ if(isset($postdata) && !empty($postdata))
 		$rowOldStarhunt = $resOldStarhunt -> fetch_assoc();
 		
 		$starhuntPass = randomPassword(8);
-		$sqlStarhunt = "UPDATE starhunt_subscription SET starhunt_username = '".$starhunt_phone."', starhunt_password = '".$starhuntPass."' WHERE id = '".$rowOldStarhunt['id']."'";
+		$newStarhuntUser = "INSERT INTO newo_users(parent_id,email,password,created_ts) VALUES('".$rowOldStarhunt['id']."','".$starhunt_email."','".$starhuntPass."',NOW())";
+		$resNewStarhuntUser = $mysqli->query($newStarhuntUser);
+
+		$sqlStarhunt = "UPDATE starhunt_subscription SET starhunt_username = '".$starhunt_email."' WHERE id = '".$rowOldStarhunt['id']."'";
 		$resStarhunt = $mysqli->query($sqlStarhunt);
 	}
 

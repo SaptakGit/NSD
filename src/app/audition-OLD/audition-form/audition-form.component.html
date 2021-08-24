@@ -200,10 +200,10 @@
                                                 
                                                  <div class="form-registration">
                                                     <!-- enctype="multipart/form-data"  autocomplete="nofill" -->
-                                                <form  class="form"   [formGroup]="angForm" (ngSubmit)="postauditiondata(angForm.value)">
-                                                        <!-- <input class="input--style-2" type="hidden" name="key" value=""> 
+                                                <form  class="form"   [formGroup]="angAuditionForm" (ngSubmit)="auditiondata(angAuditionForm)">
+                                                        <input class="input--style-2" type="hidden" name="key" value=""> 
                                                          <input class="" type="hidden" name="modal_name" id="modal_id" value=""> 
-                                                      -->
+                                                     
      
      
                                                           
@@ -243,6 +243,15 @@
                                                                                 <option ngbDropdownItem value="Female">Female</option>
                                                                                 <option ngbDropdownItem value="Others">Other</option>
                                                                              </select>  
+
+                                                                             <!-- <select name="gender" id="gender" class="form-control label-box-registration" [(ngModel)]="gendervalue">
+                                                                                <option *ngFor="let opt of optn" [value]="opt">{{opt}}</option>
+                                                                            
+                                                                             </select> -->
+                                                                            
+                                                                           
+                                                                            
+
                                                                            </div>
                                                                            
      
@@ -250,11 +259,11 @@
                                                                  <div class="row">
                                                                     <div class="col-md-4">
                                                                         <label class="registration-label">Date Of Birth</label>
-                                                                        <input   type="text" bsDatepicker [bsConfig]="datepickerConfig" readonly (ngModelChange)="findAge($event)" id="dob" name="dob" formControlName="dob"  placeholder="DD-MM-YYYY" value="" required class="label-box-registration" autocomplete="nofill"> 
+                                                                        <input   type="text" bsDatepicker [bsConfig]="datepickerConfig" (ngModelChange)="findAge();" id="dob" name="dob" formControlName="dob"  placeholder="DD-MM-YYYY" value="" required class="label-box-registration" autocomplete="nofill"> 
                                                                     </div>
                                                                     <div class="col-md-5">     
                                                                         <label class="registration-label">Age Eligibility</label>
-                                                                        <input type="text" id="age" name="age"  readonly disabled style="font-size: 12px;color:#000;font-weight: 400;" class="label-box-registration"> 
+                                                                        <input type="text" id="age" name="age" formControlName="age" readonly disabled style="font-size: 12px;color:#000;font-weight: 400;" class="label-box-registration"> 
                                                                         
                                                                     </div>
                                                                     <div class="col-md-3">
@@ -274,7 +283,7 @@
                                                            
                                                                             <div class=" mstate" id="occup_opt" >   
                                                                                 <label class="registration-label">State *</label>
-                                                                                <select class="label-box-registration form-control select2" id="state" name="state" formControlName="state" (change)="changeStateReg(this);" autocomplete="nofill">
+                                                                                <select class="label-box-registration form-control select2" id="state" name="state" formControlName="state" onchange="changeStateReg(this);" autocomplete="nofill">
                                                                                 
                                                                                 <option value="">Select</option>
                                                                                 <option value="Andaman &amp; Nicobar Islands">Andaman &amp; Nicobar Islands</option>
@@ -351,8 +360,8 @@
                                                       
      
      
-                                                                         <!-- <input type="hidden" name="below_age" formControlName="below_age" id="below_age" value=""> -->
-                                                                        <input type="hidden" name="years"  id="years" fromControl="years" value=""> 
+                                                                         <input type="hidden" name="below_age" formControlName="below_age" id="below_age" value="">
+                                                                        <input type="hidden" name="years"  id="years" value=""> 
                                                                                <div class="row">
                                                                                     <div class="col-md-12">
                                                                                        
@@ -389,13 +398,13 @@
                                                                                         </div>
                                                                                         <div class="col-md-7">
                                                                                             
-                                                                                             <div class="flex-check" style="letter-spacing: 2px;">
+                                                                                            <div class="flex-check" style="letter-spacing: 2px;">
                                                                                             <label class="contain audition_type" style="font-weight: bold;">Online
-                                                                                                <input type="radio" name="aud_type" id="aud_type" formControlName="aud_type" class="aud_type" value="Online" (click)="changeAuditiontype('Online')" required="required"> 
+                                                                                                <input type="radio" name="aud_type" class="aud_type" value="Online" (click)="changeAuditiontype('Online')" required="required"> 
                                                                                                 <span class="checkmark"></span>
                                                                                             </label>
                                                                                             <label class="contain audition_type" style="font-weight: bold;">Physical
-                                                                                                <input type="radio" name="aud_type" class="aud_type" id="aud_type" formControlName="aud_type" value="Physical" (click)="changeAuditiontype('Physical')" required="required">
+                                                                                                <input type="radio" name="aud_type" class="aud_type" value="Physical" (click)="changeAuditiontype('Physical')" required="required">
                                                                                                 <span class="checkmark"></span>
                                                                                             </label>
                                                                                             </div>
@@ -411,39 +420,44 @@
                                                                     <div class="col-md-4">
                                                                         <div class="custom-select" id="applyCustom">
                                                                             <label class="registration-label">I'm Applying For...</label>
-
-                                                                            <select  name="apply_for" id="applyFor"  formControlName="applyFor"  class="form-control label-box-registration" (change)="findAmount()" >
-                                                                                <option >Select</option>
-                                                                                <option *ngFor="let rdata of result_data | keyvalue"  [value]="rdata.value.id" id="applied_field" >{{rdata.value.apply_name}}</option>
-                                                                             </select>
+                                                                            <input type="text" class="form-input">
+                                                                            <select class="label-box-registration" id="applyFor" name="apply_for" required="required">
+                                                                                <option value="" selected>Choose One</option>
+                                                                            </select>
+                                                                           
 
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-md-4">
                                                                         <div class="">
                                                                             <label class="registration-label">Amount *</label>
-                                                                            <input type="text" class="label-box-registration" id="applyValue" name="applyValue" formControlName="applyValue"  (click)="getPhase()" name="applyValue"  readonly>
+                                                                            <input type="text" class="label-box-registration" id="applyValue" name="applyValue" readonly>
                                                                             
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-md-4">
-                                                                        <div class="" id="phaseChoose" style="display:none">
+                                                                        <div class="">
                                                                             <label class="registration-label">Choose Phase *</label>
-                                                                            <select class="form-control label-box-registration" name="phase" id="choose_phase"  formControlName="phase"  (change)="findPlace()"  >
-                                                                                <option >Select</option>
-                                                                                <option  ngbDropdownItem value="1">Phase -1</option>
-                                                                                <option  ngbDropdownItem value="2">Phase -2</option>
-                                                                                <option  ngbDropdownItem value="3">Phase -3</option>
-                                                                                <option  ngbDropdownItem value="4">Phase -4</option>
-                                                                             </select>
-                                                                            
+                                                                            <select class="label-box-registration" id="">
+                                                                                <option>Select</option>
+                                                                                <option>1</option>
+                                                                                <option>2</option>
+                                                                            </select>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-md-4">
                                                                         <div class="form-group" id="linkdetails" style="display:none;">
             
                                                                             <div class=""> 
-                                                                              
+                                                                                <div class="custom-select " id="phase_div">
+                                                                                        <label class="registration-label">Choose Phase </label>
+                                                                                        <select class="label-box-registration" id="phase" name="phase" required="required">
+                                                                                        <option value="">Select</option>
+                                                                                    
+                                                                                            <option data-id="<?=$phase->phase?>" value="<?=$phase->phase?>">Phase </option>
+                                                                                    
+                                                                                    </select>
+                                                                                </div>
                                                                             </div>
                                                                         </div>
                                                                     </div>       
@@ -460,9 +474,11 @@
                                                                                 <div class="form-group">
                                                                                     <div class="custom-select" id="venue_div">
                                                                                         <label class="form-label" for="">At<span style="color:#d5dd25;">*</span></label>
-                                                                                        <select class="form-input" id="venue" name="venuename" formControlName="venuename" required="required" (change)="findHotel()">
+                                                                                        <select class="form-input" id="venue" name="venuename" required="required">
                                                                                             <option value="">Select</option>
-                                                                                            <option *ngFor="let vdata of choose_venue | keyvalue"  [value]="vdata.value.id" id="applied_at" >{{vdata.value.venue_name}}</option>
+                                                                                            <option value="">1</option>
+                                                                                            <option value="">2</option>
+                                                                                            <option value="">3</option>
                                                                                         </select>
                                                                                         
                                                                                     </div>
@@ -471,20 +487,18 @@
                                                                             <div class="col-md-8">
                                                                                 <div class="form-group">
                                                                                     <label class="form-label" for="">Venue<span style="color:#d5dd25;">*</span></label>
-                                                                            <!-- <div class="form-input" id="venuAdd" name="venuAdd"></div> -->
-                                                                                    <input type="text" class="label-box-registration" id="venuAdd"  name="venuAdd" formControlName="venuAdd" readonly>
+                                                                            <div class="form-input" id="venuAdd" name="venuAdd"></div>
                                                                             
-                                                                                  </div>
-                                                                            </div>   
+                                                                        </div>
+                                                                            </div>
                                                                             <div class="col-md-12"> 
                                                                                 <div class="form-group">
                                                                                 <div class="custom-select" id="venueDateShow">
                                                                                     <label class="form-label" for="">App. Date<span style="color:#d5dd25;">*</span></label>
-                                                                                    <select class="form-input" id="venuDate" name="venuDate" fromControlName="venuDate" required>
+                                                                                    <select class="form-input" id="venuData" name="DateCapacity_id" required>
                                                                                         <option value="">Select</option>
-                                                                                        <option  [value]="venue_date_id" id="applied_at" >{{venue_date}}</option>
                                                                                     </select>
-                                                                                  
+                                                                                    
                                                                                 </div>
                                                                             </div>
                                                                             </div>
@@ -513,7 +527,7 @@
                                                                     <div class="col-md-3 col-6" style="display: none;" id="register_div">
                                                                         <div class="registration-submit">
                                                                         
-                                                                            <button  class="btn registration-next" id="paymentSubmit" >Register</button>
+                                                                            <button type="submit" class="btn registration-next" id="paymentSubmit" onclick="checkvalidateForm()">Register</button>
             
                                                                         </div>
                                                                     </div>
@@ -957,6 +971,7 @@
       <!-- end tab-registration-->
   
   <app-auditionfooter></app-auditionfooter>
+
 
 
 

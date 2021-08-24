@@ -108,9 +108,9 @@ export class HomepageComponent implements OnInit {
 		this.dataService.checkStarhunt(star).subscribe((result)=>{
 			if(result.code==1){
 				// alert('User Subscription Successfully Completed!');
-				/*const redirect = this.dataService.redirectUrl ? this.dataService.redirectUrl : 'otthome';
-				this.router.navigate([redirect]);*/
-				window.location.href = 'https://www.netwood.tv/audition/';
+				const redirect = this.dataService.redirectUrl ? this.dataService.redirectUrl : 'auditionform';
+				this.router.navigate([redirect]);
+				//window.location.href = 'https://www.netwood.tv/audition/';
 			}
 			else{
 				alert(result.msg);

@@ -26,6 +26,7 @@ export class PriceComponent implements OnInit {
   postdata(angform1)
   {
     this.dataService.payment_ott(angform1).subscribe((result)=>{
+	  //alert(JSON.stringify(result));
       if(result.id==1){
         const redirect = this.dataService.redirectUrl ? this.dataService.redirectUrl : '/subcription/'+result.username;
         this.router.navigate([redirect]);

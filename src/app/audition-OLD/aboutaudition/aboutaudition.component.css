@@ -1,0 +1,31 @@
+/*about*/
+.menu-back{   
+    background: radial-gradient(at 17% 99%, #0e82ff, rgb(255 26 195)) !important;
+    color: #fff;  
+    padding: 20px;
+}
+.ab-md-text h2{
+    color: #ffc107;
+    font-weight: bold;
+}
+.ab-md-text h3{
+    font-size: 20px;
+    font-weight: 600;
+}
+.et_pb_row_1{
+    display: none;
+}
+.ab-md-text ol{
+    margin: 0;
+padding: 0;
+color: #000;
+color: #ffc600;
+font-weight: 600;
+}
+.ab-md-text ol li{
+    display: inline list-item;
+}
+.drp-calendar.left.single {
+    height: 133px;
+    overflow-x: scroll;
+}
